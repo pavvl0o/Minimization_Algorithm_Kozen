@@ -1,12 +1,15 @@
 # DFA Minimization Assignment
 
 ## Student Information
-- **Full Name**: [TU NOMBRE COMPLETO]
-- **Class Number**: [TU NÚMERO DE CLASE]
+- **Full Name**: 
+   - Miguel Ángel Riveros Mejía.
+   - Pablo Alvarez Restrepo.
+   - Mike Wazowski.
+- **Class Number**: C2666-SI2002-4369
 
 ## Environment
 - **Operating System**: Linux Omarchy versión 3.8.4 (Arch-based)
-- **Compiler**: g++ (GCC) 15.x
+- **Compiler**: g++ (GCC)
 - **C++ Standard**: C++17
 - **Build Tool**: g++ directly (no CMake/Make required)
 
@@ -32,14 +35,10 @@ Given a DFA with no inaccessible states, the algorithm identifies pairs of equiv
 4. **Iterative Marking**: Repeat until no new pairs are marked:
    - For each unmarked pair `(i, j)`, check all alphabet symbols `a ∈ Σ`
    - Let `ni = δ(i, a)` and `nj = δ(j, a)` be the transitions
-   - If `ni ≠ nj` and the pair `(min(ni, nj), max(ni, nj))` is already marked as distinguished, then mark `(i, j)` as distinguished
+   - If `ni != nj` and the pair `(min(ni, nj), max(ni, nj))` is already marked as distinguished, then mark `(i, j)` as distinguished
    - This works because if two states transition to distinguishable states on the same symbol, they themselves are distinguishable
 
 5. **Output**: After convergence, all unmarked pairs `(i, j)` with `i < j` are equivalent. Output them in lexicographical order as `(i, j)` separated by spaces, one line per test case.
-
-### Complexity
-- Time: O(n² × |Σ|) per iteration, worst-case O(n³ × |Σ|) but typically much faster
-- Space: O(n²) for the distinction matrix
 
 ## Build Instructions
 
@@ -52,9 +51,6 @@ g++ -std=c++17 -O2 dfa_minimize.cpp -o dfa_minimize
 ```bash
 # From stdin
 ./dfa_minimize < input.txt
-
-# Or pipe directly
-cat input.txt | ./dfa_minimize
 ```
 
 ## Input Format Example
@@ -110,3 +106,7 @@ a b
 - Kozen, Dexter C. (1997). *Automata and Computability*. 1st ed. Berlin, Heidelberg: Springer-Verlag. ISBN: 0387949070. DOI: https://doi.org/10.1007/978-1-4612-1844-9
 - Lecture 13: Construction for DFA minimization
 - Lecture 14: Table-filling algorithm
+
+## Support Tools
+- **NotebookLM**: Used to read and understand academic readings (Kozen's paper, lecture slides) — summarize, extract key concepts, and generate explanations in Spanish.
+- **Hermes Agent**: Guide for structuring the README in Markdown, translating technical terms from English, and validating the algorithm explanation. English is not our strong suit (sorry), so the AI helps us write clear technical documentation. 
